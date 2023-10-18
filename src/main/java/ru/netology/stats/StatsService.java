@@ -38,20 +38,13 @@ public class StatsService {
     }
 
     public long averageSales(long[] sales) { // среднее арифметическое
-        long sum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-        }
+        long sum = amountSales(sales);
         return sum / sales.length;
     }
 
     public long aboveaverageSales(long[] sales) { // выше среднего
-        long sum = 0;
         long aboveAverage = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-        }
-        long average = sum / sales.length;
+        long average = averageSales(sales);
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > average) {
                 aboveAverage++;
@@ -61,12 +54,9 @@ public class StatsService {
     }
 
     public long belowaverageSales(long[] sales) { // ниже среднего
-        long sum = 0;
+
         long belowAverage = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-        }
-        long average = sum / sales.length;
+        long average = averageSales(sales);
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] < average) {
                 belowAverage++;
